@@ -26,7 +26,7 @@ const generateSections = () =>{
 
                     </input>
                     <select name="Weekday Due" class="col-2" task-id=${section.title +'-'+0}>
-                        <option value="next week">Next Week</option>
+                        <option value="" disabled selected>Due Date</option>
                         <option value="monday">Monday</option>
                         <option value="tuesday">Tuesday</option>
                         <option value="wednesday">Wednesday</option>
@@ -47,7 +47,7 @@ const generateSections = () =>{
 
                     </input>
                     <select name="Weekday Due" class="col-2" task-id=${section.title +'-'+0}>
-                        <option value="next week">Next Week</option>
+                        <option value="" disabled selected>Due Date</option>
                         <option value="monday">Monday</option>
                         <option value="tuesday">Tuesday</option>
                         <option value="wednesday">Wednesday</option>
@@ -68,7 +68,7 @@ const generateSections = () =>{
       
                     </input>
                     <select name="Weekday Due" class="col-2" task-id=${section.title +'-'+0}>
-                        <option value="next week">Next Week</option>
+                        <option value="" disabled selected>Due Date</option>
                         <option value="monday">Monday</option>
                         <option value="tuesday">Tuesday</option>
                         <option value="wednesday">Wednesday</option>
@@ -98,7 +98,7 @@ var userData = [
         type: "Personal",
         taskId: "Personal-0",
         content: 'I have to praise God',
-        day: 'Saturday',
+        day: 'friday',
         completed: true
     }
 ]
@@ -109,7 +109,8 @@ var loadUserData = () =>{
         pickedBlockContent.value = task.content
 
         var pickedBlockDate = document.querySelector(".col-2[task-id='" + task.taskId + "']")
-        pickedBlockDate.innerHTML = "<p>" + task.day +" </p>"
+        pickedBlockDate.value = task.day
+
         var pickedBlockComplete = document.querySelector(".col-1[task-id='" + task.taskId + "']")
         if(task.completed === true){
             pickedBlockComplete.className = "complete col-1"
@@ -142,7 +143,7 @@ const editBlock = (e) =>{
         }
 
 
-      
+
     }
 }
 
