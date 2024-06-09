@@ -23,39 +23,39 @@ const generateSections = () =>{
             <div class="container-fluid py-1">
                 <div class="row my-4 task-id=${section.title +'-'+0}">
                     <div class="col" task-id=${section.title +'-'+0}>
-                        <p>Hey</p>
+                        <p></p>
                     </div>
                     <div class="col-2" task-id=${section.title +'-'+0}>
-                        <p>Due By</p>
+                        <p></p>
                     </div>
                     <div class="col-1" task-id=${section.title +'-'+0}>
-                        <p>cool</p>
+                        <p></p>
                     </div>
                 </div>
                 <div class="divider"></div>
 
                 <div class="row my-4" task-id=${section.title +'-'+1}>
-                    <div class="col" tasl-id=${section.title +'-'+1}>
+                    <div class="col" task-id=${section.title +'-'+1}>
                         <p></p>
                     </div>
                     <div class="col-2 task-id=${section.title +'-'+1}">
-                        <p>Due By</p>
+                        <p></p>
                     </div>
                     <div class="col-1" task-id=${section.title +'-'+1}>
-                        <p>cool</p>
+                        <p></p>
                     </div>
                 </div>
                 <div class="divider"></div>
 
                 <div class="row my-4" task-id=${section.title +'-'+2}>
                     <div class="col" task-id=${section.title +'-'+2}>
-                        <p>hey</p>
+                        <p></p>
                     </div>
                     <div class="col-2" task-id=${section.title +'-'+2}>
-                        <p>Due By</p>
+                        <p></p>
                     </div>
                     <div class="col-1" task-id=${section.title +'-'+2}>
-                        <p>cool</p>
+                        <p></p>
                     </div>
                 </div>
             </div>
@@ -75,15 +75,21 @@ var userData = [
         taskId: "Personal-0",
         content: 'I have to praise God',
         day: 'Saturday',
-        completed: false
+        completed: true
     }
 ]
 
 var loadUserData = () =>{
     userData.forEach((task)=>{
-        var pickedBlock = document.querySelector(".col[task-id='" + task.taskId + "']")
-
-        pickedBlock.textContent = task.content
+        var pickedBlockContent = document.querySelector(".col[task-id='" + task.taskId + "']")
+        pickedBlockContent.innerHTML = "<p>" + task.content +" </p>"
+        var pickedBlockDate = document.querySelector(".col-2[task-id='" + task.taskId + "']")
+        pickedBlockDate.innerHTML = "<p>" + task.day +" </p>"
+        var pickedBlockComplete = document.querySelector(".col-1[task-id='" + task.taskId + "']")
+        if(task.completed === true){
+            pickedBlockComplete.className = "complete col-1"
+        }
+        
     })
 }
 

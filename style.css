@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .scheduler{
     width: 98%;
     margin: 0 auto
@@ -11,7 +17,13 @@
     border-left: 3px solid black
 }
 
+.col, .col-1, .col-2{
+    height: 35px
+}
 
+.complete{
+    background-color: black;
+}
 
 h1,h4{
     font-family: 'Courier New', Courier, monospace;
