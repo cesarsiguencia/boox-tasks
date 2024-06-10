@@ -48,6 +48,12 @@ input{
     background-color: red;
 }
 
+.sub-title{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 @media screen and (min-width: 1300px ) {
     .scheduler{
         width: 1200px;
