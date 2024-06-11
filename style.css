@@ -10,7 +10,7 @@
 }
 
 .container-fluid {
-    background-color: red;
+    /* background-color: red; */
 }
 
 .col-1, .col-2{
@@ -48,12 +48,28 @@ input{
     /* background-color: red; */
 }
 
-.sub-title{
+.sub-title {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.sub-title > div {
+    width: 30%
+}
+
+.heading{
     display: flex;
     flex-wrap: wrap;
 }
 
+.title {
+    width: 70%
+}
 
+.directions{
+    width: 30%;
+}
 @media screen and (min-width: 1300px ) {
     .scheduler{
         width: 1200px;

@@ -1,6 +1,6 @@
 var sectionHolder = document.querySelector("#scheduler-content")
 var button = document.querySelector("#save-task")
-var taskIdCounter = 0
+var date = document.querySelector('#update-date')
 
 var sections = [
     {
@@ -95,6 +95,13 @@ var userData = []
 
 var loadUserData = () =>{
     var newArray = JSON.parse(localStorage.getItem("scheduler-tasks"))
+    var savedDate = JSON.parse(localStorage.getItem("scheduler-tasks-date"))
+
+    if(savedDate){
+        date.value = savedDate
+    }
+    
+
     if(newArray){
         userData = newArray
     }
@@ -192,4 +199,8 @@ const deleteTask = (deleteId) =>{
     })
 }
 
+
 sectionHolder.addEventListener("click", editBlock)
+date.addEventListener("change", function(){
+    localStorage.setItem("scheduler-tasks-date", JSON.stringify(date.value))
+})
