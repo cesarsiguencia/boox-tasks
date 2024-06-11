@@ -174,7 +174,9 @@ const editBlock = (e) =>{
                 day: editBlockDay
                 // completed: 
             })
-        } 
+        } else {
+            console.log('no')
+        }
 
         // if(editBlockContent === ""){
         //     console.log('no content')
