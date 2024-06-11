@@ -45,7 +45,7 @@ input{
     width: 100%;
     border: none;
     height: 35px;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .sub-title{

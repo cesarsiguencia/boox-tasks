@@ -91,23 +91,6 @@ const generateSections = () =>{
 }
 generateSections()
 
-// var userData = [
-//     {
-//         type: "Personal",
-//         taskTag: "Personal-0",
-//         content: 'Working example',
-//         day: 'friday',
-//         completed: true
-//     },
-//     {
-//         type: "Work",
-//         taskTag: "Work-1",
-//         content: 'Another one',
-//         day: 'tuesday',
-//         completed: false
-//     }
-// ]
-
 var userData = []
 
 var loadUserData = () =>{
@@ -116,7 +99,6 @@ var loadUserData = () =>{
         userData = newArray
     }
     
-    console.log(userData)
     if(userData){
         userData.forEach((task)=>{
             var pickedBlockContent = document.querySelector(".col[task-id='" + task.taskTag + "']")
@@ -128,17 +110,18 @@ var loadUserData = () =>{
             var pickedBlockComplete = document.querySelector(".col-1[task-id='" + task.taskTag + "']")
             if(task.completed === true){
                 pickedBlockComplete.className = "complete col-1"
+                pickedBlockComplete.setAttribute('status', "true")
             }
         })
     }
 }
 loadUserData()
 
+var taskStatus = ""
+
 const editBlock = (e) =>{
-    console.log('edits')
     var taskType = e.target.getAttribute("task-type")
     var taskId = e.target.getAttribute("task-id")
-    console.log(taskId)
 
     if(e.target.matches(".col-1")){
         var editBlockComplete = document.querySelector(".col-1[task-id='" + taskId + "']")
@@ -146,45 +129,66 @@ const editBlock = (e) =>{
         if(editBlockComplete.hasAttribute("status")){
             editBlockComplete.removeAttribute("status")
             editBlockComplete.classList.remove("complete")
+            taskStatus = false
         } else {
             editBlockComplete.className = "complete col-1"
             editBlockComplete.setAttribute('status', "true")
+            taskStatus = true
         }
+
+        editStatus(taskStatus, taskId)
+    }
+    console.log('any detection of delete?')
+
+    if(document.querySelector(".col[task-id='" + taskId + "']").value === ""){
+        console.log('no data here')
     }
 
-    sectionHolder.addEventListener("change", function(){
+
+
+    sectionHolder.addEventListener("change", function(e){
+        console.log('are there changes?')
         var editBlockContent = document.querySelector(".col[task-id='" + taskId + "']").value
         var editBlockDay = document.querySelector(".col-2[task-id='" + taskId + "']").value
         if(userData.length > 0){
-            userData.forEach((task)=>{
-                if(task.taskTag === taskId){
-                    const index = userData.indexOf(task)
-                    userData.splice(index, 1)
-                }
-            })
+            deleteTask(taskId)
         }
-        console.log(editBlockContent, 'outside')
+        console.log(editBlockContent)
+        console.log(editBlockDay)
         if(editBlockContent && editBlockDay){
-            console.log(editBlockContent)
-            console.log(editBlockDay)
             userData.push({
                 type: taskType,
                 taskTag: taskId,
                 content: editBlockContent,
                 day: editBlockDay
-                // completed: 
             })
         } else {
             console.log('no')
         }
 
-        // if(editBlockContent === ""){
-        //     console.log('no content')
-        // }
 
 
-        console.log(userData)
+
+
         localStorage.setItem("scheduler-tasks", JSON.stringify(userData))
+    })
+}
+
+const editStatus = (changeStatus, changeId) =>{
+    userData.forEach((task)=>{
+        if(task.taskTag === changeId){
+            task.completed = changeStatus
+        }
+    })
+    localStorage.setItem("scheduler-tasks", JSON.stringify(userData))
+}
+
+const deleteTask = (deleteId) =>{
+    userData.forEach((task)=>{
+        if(task.taskTag === deleteId){
+            const index = userData.indexOf(task)
+            userData.splice(index, 1)
+        }
     })
 }
 
