@@ -22,8 +22,8 @@ const generateSections = () =>{
         sectionLoad.innerHTML = `
             <h3>${section.title}</h3>
             <div class="container-fluid py-1">
-                <div class="row my-4" task-type=${section.title} task-id=${section.title +'-'+0}>
-                    <input class="col" task-type=${section.title} task-id=${section.title +'-'+0}>
+                <div class="row my-2" task-type=${section.title} task-id=${section.title +'-'+0}>
+                    <input class="col writing" task-type=${section.title} task-id=${section.title +'-'+0}>
 
                     </input>
                     <select name="Weekday Due" class="col-2" task-type=${section.title} task-id=${section.title +'-'+0}>
@@ -43,8 +43,8 @@ const generateSections = () =>{
                 </div>
                 <div class="divider"></div>
 
-                <div class="row my-4" task-type=${section.title} task-id=${section.title +'-'+1}>
-                    <input class="col" task-type=${section.title} task-id=${section.title +'-'+1}>
+                <div class="row my-2" task-type=${section.title} task-id=${section.title +'-'+1}>
+                    <input class="col writing" task-type=${section.title} task-id=${section.title +'-'+1}>
 
                     </input>
                     <select name="Weekday Due" class="col-2" task-type=${section.title} task-id=${section.title +'-'+1}>
@@ -64,8 +64,8 @@ const generateSections = () =>{
                 </div>
                 <div class="divider"></div>
 
-                <div class="row my-4" task-type=${section.title} task-id=${section.title +'-'+2}>
-                    <input class="col" task-type=${section.title} task-id=${section.title +'-'+2}>
+                <div class="row my-2" task-type=${section.title} task-id=${section.title +'-'+2}>
+                    <input class="col writing" task-type=${section.title} task-id=${section.title +'-'+2}>
       
                     </input>
                     <select name="Weekday Due" class="col-2" task-type=${section.title} task-id=${section.title +'-'+2}>
