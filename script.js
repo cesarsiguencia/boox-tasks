@@ -26,7 +26,7 @@ const generateSections = () =>{
                     <input class="col writing" task-type=${section.title} task-id=${section.title +'-'+0}>
 
                     </input>
-                    <select name="Weekday Due" class="col-2" task-type=${section.title} task-id=${section.title +'-'+0}>
+                    <select name="Weekday Due" class="col-2 height" task-type=${section.title} task-id=${section.title +'-'+0}>
                         <option value="" disabled selected>Due Date</option>
                         <option value="monday">Monday</option>
                         <option value="tuesday">Tuesday</option>
@@ -37,7 +37,7 @@ const generateSections = () =>{
                         <option value="sunday">Sunday</option>
                         <option value="next week">Next Week</option>
                     </select>
-                    <div class="col-1" task-type=${section.title} task-id=${section.title +'-'+0}>
+                    <div class="col-1 height" task-type=${section.title} task-id=${section.title +'-'+0}>
                         <p></p>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const generateSections = () =>{
                     <input class="col writing" task-type=${section.title} task-id=${section.title +'-'+1}>
 
                     </input>
-                    <select name="Weekday Due" class="col-2" task-type=${section.title} task-id=${section.title +'-'+1}>
+                    <select name="Weekday Due" class="col-2 height" task-type=${section.title} task-id=${section.title +'-'+1}>
                         <option value="" disabled selected>Due Date</option>
                         <option value="monday">Monday</option>
                         <option value="tuesday">Tuesday</option>
@@ -58,7 +58,7 @@ const generateSections = () =>{
                         <option value="sunday">Sunday</option>
                         <option value="next week">Next Week</option>
                     </select>
-                    <div class="col-1" task-type=${section.title} task-id=${section.title +'-'+1}>
+                    <div class="col-1 height" task-type=${section.title} task-id=${section.title +'-'+1}>
                         <p></p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ const generateSections = () =>{
                     <input class="col writing" task-type=${section.title} task-id=${section.title +'-'+2}>
       
                     </input>
-                    <select name="Weekday Due" class="col-2" task-type=${section.title} task-id=${section.title +'-'+2}>
+                    <select name="Weekday Due" class="col-2 height" task-type=${section.title} task-id=${section.title +'-'+2}>
                         <option value="" disabled selected>Due Date</option>
                         <option value="monday">Monday</option>
                         <option value="tuesday">Tuesday</option>
@@ -79,7 +79,7 @@ const generateSections = () =>{
                         <option value="sunday">Sunday</option>
                         <option value="next week">Next Week</option>
                     </select>
-                    <div class="col-1" task-type=${section.title} task-id=${section.title +'-'+2}>
+                    <div class="col-1 height" task-type=${section.title} task-id=${section.title +'-'+2}>
                         <p></p>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ var loadUserData = () =>{
     
             var pickedBlockComplete = document.querySelector(".col-1[task-id='" + task.taskTag + "']")
             if(task.completed === true){
-                pickedBlockComplete.className = "complete col-1"
+                pickedBlockComplete.className = "complete col-1 height"
                 pickedBlockComplete.setAttribute('status', "true")
             }
         })
@@ -138,7 +138,7 @@ const editBlock = (e) =>{
             editBlockComplete.classList.remove("complete")
             taskStatus = false
         } else {
-            editBlockComplete.className = "complete col-1"
+            editBlockComplete.className = "complete col-1 height"
             editBlockComplete.setAttribute('status', "true")
             taskStatus = true
         }
